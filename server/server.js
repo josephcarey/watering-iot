@@ -15,6 +15,9 @@ console.log("Successfully Loaded.");
 /* Routes */
 app.use("/", mainRouter);
 
+// Serve static files
+// app.use(express.static("build"));
+
 // App Set //
 const PORT = process.env.PORT || 5001;
 

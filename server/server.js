@@ -13,10 +13,10 @@ const mainRouter = require("./routes/main.router");
 console.log("Successfully Loaded.");
 
 /* Routes */
-app.use("/", mainRouter);
+app.use("/api/", mainRouter);
 
 // Serve static files
-// app.use(express.static("build"));
+app.use(express.static("build"));
 
 // App Set //
 const PORT = process.env.PORT || 5001;

@@ -14,7 +14,7 @@ class PlantInfo extends React.Component {
         axios.get('/api/remote').then((response)=>{
             let array = [];
             response.data.split(' ').forEach((val, i) => {if(i%2==1){array.push(Number(val))}});
-            this.setState({ goalMoisture: array })
+            this.setState({ goalArray: array })
         }).catch((error) => {
             console.log(error);
         })
@@ -28,7 +28,7 @@ class PlantInfo extends React.Component {
     submit = (e) => {
         e.preventDefault();
         //submit new target levels
-        axios.post('/api/web', this.state.array).then(result => {
+        axios.post('/api/web', this.state.goalArray).then(result => {
             
         })
     }

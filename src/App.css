@@ -20,3 +20,7 @@
 .App-link {
   color: #09d3ac;
 }
+
+table, tr, td {
+  border: 1px solid black
+}

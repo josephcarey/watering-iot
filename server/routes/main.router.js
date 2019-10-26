@@ -8,11 +8,11 @@ router.get("/", (req, res) => {
   res.send("Hello world");
 });
 
-router.post("/", (req, res) => {
+router.post("/:message", (req, res) => {
   console.log("in post hit:");
   console.log(req);
   console.log("req.body: " + req.body);
-  console.log("req.params:" + req.params);
+  console.log("req.params:" + req.params.message);
   logWithDBEntry("/ POST", "hit", req.body);
   let response = {
     message: "Hello Arduiuno",

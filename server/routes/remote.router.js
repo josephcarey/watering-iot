@@ -5,16 +5,7 @@ const router = express.Router();
 
 router.get("/", (req, res) => {
   logWithDBEntry("/ GET", "hit", "");
-  pool
-    .query(
-      `
-    select * from "plant_soil_moisture_data";
-    `
-    )
-    .then(results => {
-      console.log(results.rows);
-      res.send("Hello world");
-    });
+  res.send("Hello world");
 });
 
 router.post("/", (req, res) => {

@@ -12,7 +12,6 @@ router.get("/", (req, res) => {
       `
     )
     .then(results => {
-      console.log(results.rows);
       res.send(results.rows);
     });
 });

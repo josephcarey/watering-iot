@@ -8,8 +8,8 @@ router.get("/", (req, res) => {
   res.send("Hello world");
 });
 
-router.post("/:message", (req, res) => {
-  logWithDBEntry("/ POST", "hit", req.params.message);
+router.post("/", (req, res) => {
+  logWithDBEntry("/ POST", "hit", req.body);
   res.sendStatus(200);
 });
 

@@ -17,6 +17,7 @@ router.get("/", (req, res) => {
 });
 
 router.post("/", (req, res) => {
+  console.log(JSON.stringify(req.body));
   logWithDBEntry("/api/web/ POST", "hit", JSON.stringify(req.body));
   pool
     .query(

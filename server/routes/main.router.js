@@ -1,5 +1,4 @@
 const express = require("express");
-const pool = require("../modules/pool");
 const logWithDBEntry = require("../modules/logWithDBEntry");
 const router = express.Router();
 
@@ -11,14 +10,16 @@ router.get("/", (req, res) => {
 router.post("/", (req, res) => {
   console.log("in post hit:");
   console.log(req);
-  console.log("req.body: " + req.body);
-  // console.log("req.params:" + req.params.message);
+  console.log("req.body: " + JSON.stringify(req.body));
+  console.log("req.query: " + JSON.stringify(req.query));
+  console.log("req.params:" + JSON.stringify(req.params.message));
   logWithDBEntry("/ POST", "hit", req.body);
-  let response = {
-    message: "Hello Arduiuno",
-    plantsNeedWatering: [1],
-    needWater: true
-  };
+  let response = "Hi Arduiuno";
+  // let response = {
+  //   message: "Hello Arduiuno",
+  //   plantsNeedWatering: [1],
+  //   needWater: true
+  // };
   res.send(response);
 });
 

@@ -37,7 +37,8 @@ router.post("/", (req, res) => {
       ]
     )
     .then(results => {
-      let response = "Hi Arduiuno";
+      let response =
+        "goalMoisture1 10 goalMoisture2 20 goalMoisture3 30 goalMoisture4 40";
       res.send(response);
     })
     .catch(error => {

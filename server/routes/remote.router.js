@@ -5,7 +5,22 @@ const router = express.Router();
 
 router.get("/", (req, res) => {
   logWithDBEntry("/ GET", "hit", "");
-  res.send("Hello world");
+  pool
+    .query(
+      `
+          select distinct on (3) * from plant_goal_moisture order by plant, creation_date desc;
+        `
+    )
+    .then(selectResults => {
+      const rows = selectResults.rows;
+      const goalMoisture1 = String(rows[0].goal_moisture).padStart(2, "0");
+      const goalMoisture2 = String(rows[1].goal_moisture).padStart(2, "0");
+      const goalMoisture3 = String(rows[2].goal_moisture).padStart(2, "0");
+      const goalMoisture4 = String(rows[3].goal_moisture).padStart(2, "0");
+
+      let response = `goalMoisture1 ${goalMoisture1} goalMoisture2 ${goalMoisture2} goalMoisture3 ${goalMoisture3} goalMoisture4 ${goalMoisture4}`;
+      res.send(response);
+    });
 });
 
 router.post("/", (req, res) => {

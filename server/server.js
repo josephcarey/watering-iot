@@ -8,12 +8,12 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 // Route includes
-const mainRouter = require("./routes/main.router");
+const apiRouter = require("./routes/api.router");
 
 console.log("Successfully Loaded.");
 
 /* Routes */
-app.use("/api/", mainRouter);
+app.use("/api/", apiRouter);
 
 // Serve static files
 app.use(express.static("build"));

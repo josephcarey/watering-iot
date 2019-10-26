@@ -9,9 +9,8 @@ router.get("/", (req, res) => {
 });
 
 router.post("/", (req, res) => {
-  console.log("in / POST hit:");
   console.log("req.query: " + JSON.stringify(req.query));
-  logWithDBEntry("/ POST", "hit", req.body);
+  logWithDBEntry("/api/remote/ POST", "hit", req.body);
 
   let moistureLevels = [];
   moistureLevels.push(req.query.moisture1);

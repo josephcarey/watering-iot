@@ -6,13 +6,13 @@ function App() {
   return (
     <div className="App">
       <header>
-        <p>
+        <h2>
           Connected Houseplant Watering System
-        </p>
+        </h2>
       </header>
-      <h2>
-        Plant Info should be displayed below:
-      </h2>
+      <h4>
+        Some text:
+      </h4>
       <PlantInfo />
     </div>
   );

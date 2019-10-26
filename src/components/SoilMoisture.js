@@ -1,11 +1,27 @@
 import React from 'react';
+import axios from 'axios';
 
-function SoilMoisture(props) {
-  return (
-    <div>
-        <span>Soil moisture for plant #{props.plant}</span>
-    </div>
-  );
+class SoilMoisture extends React.Component {
+    constructor(props){
+        super(props);
+        this.state = {moistureLevel: 0}
+    }
+
+    componentDidMount() {
+        axios.get('/api/web').then((response)=>{
+            this.setState({ moistureLevel: response.data[this.props.plant - 1] })
+        }).catch((error) => {
+            console.log(error);
+        })
+    }
+
+    render() {
+        return (
+            <div>
+                <span>Soil moisture: {this.state.moistureLevel}</span>
+            </div>
+        );
+    };
 }
 
 export default SoilMoisture;

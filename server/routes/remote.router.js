@@ -44,7 +44,13 @@ router.post("/", (req, res) => {
         `
         )
         .then(selectResults => {
-          let response = `goalMoisture1 ${selectResults.rows[0].goal_moisture} goalMoisture2 ${selectResults.rows[1].goal_moisture} goalMoisture3 ${selectResults.rows[2].goal_moisture} goalMoisture4 ${selectResults.rows[3].goal_moisture}`;
+          const rows = selectResults.rows;
+          const goalMoisture1 = String(rows[0].goal_moisture).padStart(2, "0");
+          const goalMoisture2 = String(rows[1].goal_moisture).padStart(2, "0");
+          const goalMoisture3 = String(rows[2].goal_moisture).padStart(2, "0");
+          const goalMoisture4 = String(rows[3].goal_moisture).padStart(2, "0");
+
+          let response = `goalMoisture1 ${goalMoisture1} goalMoisture2 ${goalMoisture2} goalMoisture3 ${goalMoisture3} goalMoisture4 ${goalMoisture4}`;
           res.send(response);
         });
     })

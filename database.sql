@@ -6,5 +6,4 @@ CREATE TABLE "log" (
     "caller" VARCHAR(255),
 	"message" VARCHAR(255),
     "called_with" VARCHAR(255)
-    
 );

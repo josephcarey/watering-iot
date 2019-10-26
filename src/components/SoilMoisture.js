@@ -9,7 +9,7 @@ class SoilMoisture extends React.Component {
 
     componentDidMount() {
         axios.get('/api/web').then((response)=>{
-            this.setState({ moistureLevel: response.data[this.props.plant - 1] })
+            this.setState({ moistureLevel: response.data[this.props.plant - 1].moisture_value })
         }).catch((error) => {
             console.log(error);
         })

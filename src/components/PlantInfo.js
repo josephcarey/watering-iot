@@ -8,16 +8,16 @@ function PlantInfo() {
         <table>
             <tbody>
                 <tr>
-                    <td>Plant 1:</td><tr><SoilMoisture plant={1} /></tr>
+                    <td>Plant 1:</td><td><SoilMoisture plant={1} /></td>
                 </tr>
                 <tr>
-                    <td>Plant 2:</td><tr><SoilMoisture plant={2} /></tr>
+                    <td>Plant 2:</td><td><SoilMoisture plant={2} /></td>
                 </tr>
                 <tr>
-                    <td>Plant 3:</td><tr><SoilMoisture plant={3} /></tr>
+                    <td>Plant 3:</td><td><SoilMoisture plant={3} /></td>
                 </tr>
                 <tr>
-                    <td>Plant 4:</td><tr><SoilMoisture plant={4} /></tr>
+                    <td>Plant 4:</td><td><SoilMoisture plant={4} /></td>
                 </tr>
             </tbody>
         </table>

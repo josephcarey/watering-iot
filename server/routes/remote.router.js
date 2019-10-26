@@ -37,9 +37,16 @@ router.post("/", (req, res) => {
       ]
     )
     .then(results => {
-      let response =
-        "goalMoisture1 10 goalMoisture2 20 goalMoisture3 30 goalMoisture4 40";
-      res.send(response);
+      pool
+        .query(
+          `
+          select distinct on (3) * from plant_goal_moisture order by plant, creation_date desc;
+        `
+        )
+        .then(selectResults => {
+          let response = `goalMoisture1 ${selectResults.rows[0].goal_moisture} goalMoisture2 ${selectResults.rows[1].goal_moisture} goalMoisture3 ${selectResults.rows[2].goal_moisture} goalMoisture4 ${selectResults.rows[3].goal_moisture}`;
+          res.send(response);
+        });
     })
     .catch(error => {
       console.log("Error! This sucks.");

@@ -16,4 +16,33 @@ router.get("/", (req, res) => {
     });
 });
 
+router.post("/", (req, res) => {
+  logWithDBEntry("/api/web/ POST", "hit", JSON.stringify(req.body));
+  pool
+    .query(
+      `
+      insert into plant_goal_moisture (plant, goal_moisture)
+      values
+        (1, $1),
+        (2, $2),
+        (3, $3),
+        (4, $4)
+      `,
+      [
+        req.body.goalMoisture1,
+        req.body.goalMoisture2,
+        req.body.goalMoisture3,
+        req.body.goalMoisture4
+      ]
+    )
+    .then(results => {
+      res.sendStatus(200);
+    })
+    .catch(error => {
+      console.log("An error occurred.");
+      console.log(error);
+      res.sendStatus(500);
+    });
+});
+
 module.exports = router;

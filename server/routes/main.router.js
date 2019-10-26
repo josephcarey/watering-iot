@@ -9,8 +9,17 @@ router.get("/", (req, res) => {
 });
 
 router.post("/", (req, res) => {
+  console.log("in post hit:");
+  console.log(req);
+  console.log("req.body: " + req.body);
+  console.log("req.params:" + req.params);
   logWithDBEntry("/ POST", "hit", req.body);
-  res.sendStatus(200);
+  let response = {
+    message: "Hello Arduiuno",
+    plantsNeedWatering: [1],
+    needWater: true
+  };
+  res.send(response);
 });
 
 module.exports = router;

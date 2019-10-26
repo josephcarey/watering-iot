@@ -1,5 +1,6 @@
 DROP TABLE IF EXISTS "log";
-DROP TABLE IF EXISTS "plant_soil_moisture_data";
+DROP TABLE IF EXISTS "plant_soil_moisture_data";
+DROP TABLE IF EXISTS "plant_goal_moisture";
 
 CREATE TABLE "log" (
     "id" SERIAL PRIMARY KEY,
@@ -16,18 +17,35 @@ CREATE TABLE "plant_soil_moisture_data" (
     "moisture_value" INTEGER
 );
 
+CREATE TABLE "plant_goal_moisture" (
+	"id" SERIAL PRIMARY KEY,
+	"creation_date" timestamp NOT NULL DEFAULT NOW(),
+	"plant" INTEGER,
+	"goal_moisture" INTEGER
+);
+
 -- example data
-INSERT INTO "plant_soil_moisture_data" (creation_date, plant, moisture_value)
+INSERT INTO "plant_soil_moisture_data" (plant, moisture_value)
 VALUES
-	(now(), 1, 100),
-	(now(), 2, 75),
-	(now(), 3, 25),
-	(now(), 4, 50)
+    (1, 100),
+    (2, 75),
+    (3, 25),
+    (4, 50)
 ;
-INSERT INTO "plant_soil_moisture_data" (creation_date, plant, moisture_value)
-        VALUES
-          (now(), 1, 1),
-          (now(), 2, 2),
-          (now(), 3, 3),
-          (now(), 4, 4)
-        ;
+INSERT INTO "plant_soil_moisture_data" (plant, moisture_value)
+VALUES
+	(1, 1),
+	(2, 2),
+	(3, 3),
+	(4, 4)
+;
+
+INSERT INTO "plant_goal_moisture" ("plant", "goal_moisture")
+VALUES
+	(1, 1),
+	(2, 2),
+	(3, 30),
+	(4, 40)
+;
+
+
